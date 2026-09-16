@@ -1,0 +1,25 @@
+{
+  "name": "typescript_vizsgafeladat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Waruii00/Typescript_vizsgafeladat.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Waruii00/Typescript_vizsgafeladat/issues"
+  },
+  "homepage": "https://github.com/Waruii00/Typescript_vizsgafeladat#readme",
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}
