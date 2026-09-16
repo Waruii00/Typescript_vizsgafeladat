@@ -1,5 +1,6 @@
 import { Event } from "../models/Event";
-import { Participant } from "../models/Participant";
+import { IParticipant } from "../interfaces/IParticipant";
+import { EventType } from "../models/EventType";
 
 export class EventManager {
     private events: Event[];
@@ -20,11 +21,34 @@ export class EventManager {
         return this.events;
     }
 
-    updateEvent(id: number, newName: string): void {
+    getEventById(id: number): Event | undefined {
+        return this.events.find(event => event.id === id);
+    }
+
+    getParticipants(eventId: number): IParticipant[] {
+        const event = this.events.find(event => event.id === eventId);
+
+        if (event) {
+            return event.participants;
+        }
+
+        return [];
+    }
+
+    updateEvent(
+        id: number,
+        newName: string,
+        newLocation: string,
+        newDate: Date,
+        newType: EventType
+    ): void {
         const event = this.events.find(event => event.id === id);
 
         if (event) {
             event.name = newName;
+            event.location = newLocation;
+            event.date = newDate;
+            event.type = newType;
         }
     }
 
@@ -32,7 +56,7 @@ export class EventManager {
         this.events = this.events.filter(event => event.id !== id);
     }
 
-    registerParticipant(eventId: number, participant: Participant): void {
+    registerParticipant(eventId: number, participant: IParticipant): void {
         const event = this.events.find(event => event.id === eventId);
 
         if (event) {
@@ -48,5 +72,9 @@ export class EventManager {
                 participant => participant.email !== email
             );
         }
+    }
+
+    getEventsByType(type: EventType): Event[] {
+        return this.events.filter(event => event.type === type);
     }
 }

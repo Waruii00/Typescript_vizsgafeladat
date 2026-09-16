@@ -1,23 +1,21 @@
 import { IEvent } from "../interfaces/IEvent";
-import { Participant } from "./Participant";
+import { IParticipant } from "../interfaces/IParticipant";
 import { EventType } from "./EventType";
 
 export class Event implements IEvent {
-    id: number;
+    id!: number;
     name: string;
     location: string;
     date: Date;
     type: EventType;
-    participants: Participant[];
+    participants: IParticipant[];
 
     constructor(
-        id: number,
         name: string,
         location: string,
         date: Date,
         type: EventType
     ) {
-        this.id = id;
         this.name = name;
         this.location = location;
         this.date = date;

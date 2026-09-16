@@ -1,4 +1,4 @@
-import { Participant } from "../models/Participant";
+import { IParticipant } from "./IParticipant";
 import { EventType } from "../models/EventType";
 
 export interface IEvent {
@@ -7,5 +7,5 @@ export interface IEvent {
     location: string;
     date: Date;
     type: EventType;
-    participants: Participant[];
+    participants: IParticipant[];
 }
